@@ -13,7 +13,8 @@ const connectDB = (app: Express, PORT: string | number) => {
         try {
             mongoose.set("strictQuery", false);
             await mongoose.connect(
-                process.env.MONGO_CONNECT as string,
+                (process.env.MONGO_CONNECT as string) ||
+                    "mongodb+srv://interviewer:bryx1TPqeN3eF3wC@cluster0.t3hpann.mongodb.net/?retryWrites=true&w=majority",
                 options
             );
 
